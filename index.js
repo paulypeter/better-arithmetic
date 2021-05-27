@@ -69,6 +69,21 @@ exports.div = function(a, b) {
 }
 
 /*
+ * \brief returns remainder from integer division
+ *
+ * \params a, b integer numbers
+ */
+exports.modulo = function(a, b) {
+	if (typeof a === typeof b && typeof a === "number") {
+		let div = this.div(a, b);
+		let prod = this.multiply(b, div);
+		return this.sub(a, prod);
+	} else {
+		throw 'Input needs to be two numbers.'
+	}
+}
+
+/*
  * \brief adds two numbers
  *
  * \params a, b integer numbers
@@ -102,5 +117,3 @@ exports.add = function(a, b) {
 exports.sub = function(a, b) {
 	return a - b;
 }
-
-console.log(this.div(100, 3))
