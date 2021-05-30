@@ -1,6 +1,6 @@
 {
   "name": "better-arithmetic",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "new, improved implementations for arithmetic operations",
   "main": "index.js",
   "scripts": {
