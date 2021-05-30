@@ -56,13 +56,36 @@ exports.multiply = function(a, b) {
  */
 exports.div = function(a, b) {
 	if (typeof a === typeof b && typeof a === "number") {
-		let i = 0;
-		prod = this.multiply(i, b);
-		while (prod <= a) {
-			i = this.add(i, 1);
+		if (a > 0 && b > 0) {
+			let i = 0;
 			prod = this.multiply(i, b);
+			while (prod <= a) {
+				i = this.add(i, 1);
+				prod = this.multiply(i, b);
+			}
+			return this.sub(i, 1);
 		}
-		return this.sub(i, 1);
+		if (a > 0 && b < 0) {
+			let i = 0;
+			prod = this.multiply(i, b);
+			while (Math.abs(prod) < Math.abs(a)) {
+				i = this.sub(i, 1);
+				prod = this.multiply(i, b);
+			}
+			return i;
+		}
+		if (a < 0 && b > 0) {
+			let i = 0;
+			prod = this.multiply(i, b);
+			while (Math.abs(prod) < Math.abs(a)) {
+				i = this.sub(i, 1);
+				prod = this.multiply(i, b);
+			}
+			return i;
+		}
+		if (a < 0 && b < 0) {
+			return this.div(this.sub(0, a), this.sub(0, b));
+		}
 	} else {
 		throw 'Input needs to be two numbers.'
 	}
