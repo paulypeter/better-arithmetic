@@ -3,3 +3,11 @@
 # better-arithmetic
 
 new, improved implementations for arithmetic operations
+
+## Installation
+
+simply run
+
+```
+npm install better-arithmetic
+```
